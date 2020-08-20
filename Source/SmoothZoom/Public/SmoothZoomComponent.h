@@ -33,6 +33,10 @@ public:
 	/* TargetArmLength Units that will be subtracted or added*/
 	UFUNCTION(BlueprintCallable, Category = "Camera|Zoom")
 	void SmoothCameraZoom(bool bZoomOut);
+	
+	/* Smooth zoom to max/min possible*/
+	UFUNCTION(BlueprintCallable, Category = "Camera|Zoom")
+	void MaxMinCameraZoom(bool bZoomOut);
 
 	/* Sets the Minimum Target Arm Length */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Camera Zoom")
