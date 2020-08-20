@@ -57,6 +57,12 @@ void USmoothZoomComponent::SmoothCameraZoom(bool bZoomOut)
 	if (bDebug) { SmoothZoomLog(); }
 }
 
+void USmoothZoomComponent::MaxMinCameraZoom(bool bZoomOut)
+{
+	DesiredArmLength = FMath::Max<float>(DesiredArmLength, MinTargetLength);
+	//if (bDebug) { SmoothZoomLog(); }
+}
+
 void USmoothZoomComponent::SmoothZoomLog()
 {
 	UE_LOG(ZoomLog, Log, TEXT("ArmLength: %f, Min: %f Max: %f, ZUnits: %f, Smoothness: %f"),
