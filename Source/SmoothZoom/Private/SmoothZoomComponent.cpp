@@ -59,8 +59,19 @@ void USmoothZoomComponent::SmoothCameraZoom(bool bZoomOut)
 
 void USmoothZoomComponent::MaxMinCameraZoom(bool bZoomOut)
 {
-	DesiredArmLength = FMath::Max<float>(DesiredArmLength, MinTargetLength);
-	//if (bDebug) { SmoothZoomLog(); }
+	if(!bZoomOut)
+		DesiredArmLength = MinTargetLength;
+	else
+		DesiredArmLength = MaxTargetLength;
+	
+	if (bDebug) { SmoothZoomLog(); }
+}
+
+void USmoothZoomComponent::ZoomTo(float zoomLength)
+{
+	DesiredArmLength = zoomLength;
+	
+	if (bDebug) { SmoothZoomLog(); }
 }
 
 void USmoothZoomComponent::SmoothZoomLog()
